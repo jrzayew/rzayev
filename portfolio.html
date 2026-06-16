@@ -498,6 +498,294 @@
     transform: translate(0, 0);
   }
 
+  /* GPA PILL */
+  .hero-gpa {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .gpa-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .gpa-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+    border-radius: 2px;
+    padding: 2px 9px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .gpa-pill:hover {
+    background: var(--accent-glow);
+    color: var(--text);
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+
+  .gpa-spark {
+    font-size: 10px;
+    transition: transform 0.2s;
+  }
+
+  .gpa-pill:hover .gpa-spark { transform: translate(2px, -2px); }
+
+  /* GPA MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(4, 6, 11, 0.78);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    width: 100%;
+    max-width: 640px;
+    padding: 24px 24px 20px;
+    position: relative;
+    transform: translateY(14px) scale(0.98);
+    transition: transform 0.25s;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-overlay.open .modal-card {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .modal-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .modal-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .modal-close {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .modal-close:hover {
+    color: var(--text);
+    border-color: #252d40;
+  }
+
+  #gpa-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* MODAL TABS */
+  .modal-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px;
+    background: var(--bg);
+    width: fit-content;
+  }
+
+  .modal-tab {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .modal-tab:hover { color: var(--text); }
+
+  .modal-tab.active {
+    background: var(--accent-dim);
+    color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent-glow);
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* TRANSCRIPT */
+  .transcript-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .ts-stat {
+    flex: 1;
+    min-width: 110px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+
+  .ts-stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .ts-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .transcript-scroll {
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .transcript-scroll::-webkit-scrollbar { width: 8px; }
+  .transcript-scroll::-webkit-scrollbar-track { background: var(--bg); }
+  .transcript-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  table.transcript {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+
+  table.transcript thead th {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    color: var(--muted);
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 9px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
+  }
+
+  table.transcript td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  table.transcript tbody tr:last-child td { border-bottom: none; }
+  table.transcript tbody tr:hover { background: var(--bg); }
+
+  .ts-code {
+    color: var(--muted);
+    font-size: 10px;
+  }
+
+  .ts-name { color: var(--text); }
+  .ts-date { color: var(--muted); white-space: nowrap; }
+  .ts-credits { color: var(--muted); text-align: right; }
+
+  .ts-grade {
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .grade-chip {
+    display: inline-block;
+    min-width: 34px;
+    text-align: center;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 11px;
+  }
+
+  .grade-pass {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.22);
+  }
+
+  .grade-high {
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+  }
+
+  .grade-fail {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+  }
+
+  .grade-pending {
+    color: var(--muted);
+    background: transparent;
+    border: 1px dashed var(--border);
+  }
+
   /* FOOTER */
   footer {
     padding: 24px 0;
@@ -568,7 +856,11 @@
       <div class="hero-text">
         <div class="hero-tag">Open to opportunities</div>
         <h1 class="hero-name">Cəlal <span>Rzayev</span></h1>
-        <p class="hero-sub">IBA student at RSM, Erasmus University<br>Building at the intersection of data, trading systems, and intelligent automation.</p>
+        <p class="hero-sub" style="margin-bottom:0;">IBA student at RSM, Erasmus University</p>
+        <div class="hero-gpa">
+          <span class="gpa-label">GPA</span>
+          <button type="button" class="gpa-pill" onclick="openGpaModal()" aria-haspopup="dialog">7.32 / 10 <span class="gpa-spark">↗</span></button>
+        </div>
         <div class="hero-objectives">
           <div class="objective-item">
             <span class="obj-marker">·</span>
@@ -580,7 +872,7 @@
           </div>
           <div class="objective-item">
             <span class="obj-marker">→</span>
-            <span>Pursuing <strong>ACCA</strong>, <strong>CFI FMVA</strong>, and <strong>CFA Level 1</strong></span>
+            <span>Pursuing <strong>CFI FMVA</strong> and <strong>CFA Level 1</strong></span>
           </div>
         </div>
         <div class="hero-cta">
@@ -657,6 +949,33 @@
         </a>
       </div>
 
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Strategic Business Plan — TeamBoat LLC</div>
+          <div class="project-status passive">Confidential</div>
+        </div>
+        <p class="project-desc">Student consultant on a strategic business plan for TeamBoat LLC, a Georgian company, as part of RSM's International Business Administration curriculum. Conducted market and competitor analysis, assessed strategic challenges, and contributed actionable recommendations on positioning, growth, and operational development. Deliverable withheld under confidentiality.</p>
+      </div>
+
+      <div class="project-card">
+        <a href="BIM%20project.docx" target="_blank" class="project-link">
+          <div class="project-header">
+            <div class="project-title">Business Information Management <span class="arrow">↗</span></div>
+            <div class="project-status">Coursework</div>
+          </div>
+          <p class="project-desc">BPMN model of a fruit-distribution supply chain, mapping a demand-driven process with quality gateways and time-sensitive cooling events. Identified manual bottlenecks in inventory procurement and ripeness sorting, proposing AI-driven automation to cut delays and stockout risk.</p>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <a href="Poster.pdf" target="_blank" class="project-link">
+          <div class="project-header">
+            <div class="project-title">Philosophy of Science — Research Poster <span class="arrow">↗</span></div>
+            <div class="project-status">Coursework</div>
+          </div>
+          <p class="project-desc">Academic research poster produced for RSM's Philosophy of Science course, presenting a structured argument with supporting evidence in a concise visual format.</p>
+        </a>
+      </div>
 
     </div>
   </section>
@@ -692,9 +1011,238 @@
 
 </div>
 
+<div class="modal-overlay" id="gpa-modal" role="dialog" aria-modal="true" aria-labelledby="gpa-modal-title" onclick="if(event.target===this)closeGpaModal()">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="gpa-modal-title">Academic Record</div>
+        <div class="modal-sub">International Business Administration · Year 1 · Cumulative GPA 7.32 / 10</div>
+      </div>
+      <button type="button" class="modal-close" onclick="closeGpaModal()" aria-label="Close">×</button>
+    </div>
+
+    <div class="modal-tabs" role="tablist">
+      <button type="button" class="modal-tab active" id="tab-chart" role="tab" onclick="switchTab('chart')">Progression</button>
+      <button type="button" class="modal-tab" id="tab-transcript" role="tab" onclick="switchTab('transcript')">Transcript</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-chart" role="tabpanel">
+      <canvas id="gpa-chart" width="600" height="360"></canvas>
+    </div>
+
+    <div class="tab-panel" id="panel-transcript" role="tabpanel">
+      <div class="transcript-summary">
+        <div class="ts-stat">
+          <div class="ts-stat-val">7.32</div>
+          <div class="ts-stat-label">Weighted GPA</div>
+        </div>
+        <div class="ts-stat">
+          <div class="ts-stat-val">38</div>
+          <div class="ts-stat-label">Credits earned</div>
+        </div>
+        <div class="ts-stat">
+          <div class="ts-stat-val">8.5</div>
+          <div class="ts-stat-label">Highest grade</div>
+        </div>
+      </div>
+      <div class="transcript-scroll">
+        <table class="transcript">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Date</th>
+              <th style="text-align:right;">EC</th>
+              <th style="text-align:right;">Grade</th>
+            </tr>
+          </thead>
+          <tbody id="transcript-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>© 2026 Cəlal Rzayev</footer>
 
 <script>
+/* ---- GPA modal: progression chart + transcript ---- */
+const GPA_DATA = [
+  { label: '1.1', value: 6.82 },
+  { label: '1.2', value: 7.23 },
+  { label: '1.3', value: 7.30 },
+  { label: '1.4', value: 7.93 },
+];
+
+const TRANSCRIPT_DATA = [
+  { code: 'BT1203', name: 'Foundations of international marketing', date: '15 Oct 2025', grade: 6.3, ec: 4 },
+  { code: 'BT1202', name: 'Organisational behaviour',              date: '06 Nov 2025', grade: 7.4, ec: 4 },
+  { code: 'BT1201', name: 'Introduction to business',             date: '08 Dec 2025', grade: 7.6, ec: 5 },
+  { code: 'BT1211', name: 'Probability and statistics',           date: '10 Dec 2025', grade: 7.0, ec: 4 },
+  { code: 'BT1206', name: 'Accounting',                           date: '12 Dec 2025', grade: 7.0, ec: 4 },
+  { code: 'BT1204', name: 'Mathematics',                          date: '17 Dec 2025', grade: 6.7, ec: 2 },
+  { code: 'BT1210', name: 'Micro economics',                      date: '06 Feb 2026', grade: 7.3, ec: 5 },
+  { code: 'BT1209', name: 'Finance',                              date: '30 Mar 2026', grade: 7.9, ec: 4 },
+  { code: 'BT1212', name: 'Spreadsheet modelling',                date: '02 Apr 2026', grade: 7.4, ec: 3 },
+  { code: 'BT1207', name: 'Philosophy of science',               date: '08 Jun 2026', grade: 8.5, ec: 3 },
+  { code: 'BT1213', name: 'Operations management',               date: '—',           grade: null, ec: null },
+  { code: 'BT1214', name: 'Business information management',     date: '—',           grade: null, ec: null },
+  { code: 'BT1215', name: 'Quantitative decision making',        date: '—',           grade: null, ec: null },
+  { code: 'BT1208', name: 'Strategic business plan',             date: '—',           grade: null, ec: null },
+];
+
+const THEME = { accent: '#4f8ef7', muted: '#4a5268', border: '#161b27', text: '#d8dde8', bg: '#07090f' };
+
+function drawGpaChart() {
+  const canvas = document.getElementById('gpa-chart');
+  const cssW = canvas.clientWidth || 560;
+  if (!cssW) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = cssW, h = Math.max(260, Math.round(cssW * 0.55));
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.height = h + 'px';
+  const c = canvas.getContext('2d');
+  c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  c.clearRect(0, 0, w, h);
+
+  // generous padding so edge labels & value tags never clip
+  const padL = 40, padR = 34, padT = 30, padB = 46;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+
+  const values = GPA_DATA.map(d => d.value);
+  const yMin = Math.floor(Math.min(...values) - 0.5);
+  const yMax = Math.ceil(Math.max(...values) + 0.5);
+  const xOf = i => padL + (GPA_DATA.length === 1 ? plotW / 2 : (plotW * i) / (GPA_DATA.length - 1));
+  const yOf = v => padT + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+  const clampX = x => Math.max(padL + 2, Math.min(w - padR - 2, x));
+
+  const { accent, muted, border, text, bg } = THEME;
+
+  // horizontal grid + y labels
+  c.font = "11px 'DM Mono', monospace";
+  c.textBaseline = 'middle';
+  const steps = yMax - yMin;
+  for (let s = 0; s <= steps; s++) {
+    const v = yMin + s;
+    const y = yOf(v);
+    c.strokeStyle = border;
+    c.lineWidth = 1;
+    c.beginPath();
+    c.moveTo(padL, y);
+    c.lineTo(w - padR, y);
+    c.stroke();
+    c.fillStyle = muted;
+    c.textAlign = 'right';
+    c.fillText(v.toFixed(1), padL - 8, y);
+  }
+
+  // x labels (block numbers — compact, can't overlap)
+  c.textAlign = 'center';
+  c.textBaseline = 'alphabetic';
+  c.fillStyle = muted;
+  c.font = "10px 'DM Mono', monospace";
+  GPA_DATA.forEach((d, i) => {
+    c.fillText('Block ' + d.label, clampX(xOf(i)), h - padB + 18);
+  });
+
+  // area fill
+  const grad = c.createLinearGradient(0, padT, 0, padT + plotH);
+  grad.addColorStop(0, 'rgba(79,142,247,0.22)');
+  grad.addColorStop(1, 'rgba(79,142,247,0)');
+  c.beginPath();
+  GPA_DATA.forEach((d, i) => {
+    const x = xOf(i), y = yOf(d.value);
+    i === 0 ? c.moveTo(x, y) : c.lineTo(x, y);
+  });
+  c.lineTo(xOf(GPA_DATA.length - 1), padT + plotH);
+  c.lineTo(xOf(0), padT + plotH);
+  c.closePath();
+  c.fillStyle = grad;
+  c.fill();
+
+  // line
+  c.beginPath();
+  GPA_DATA.forEach((d, i) => {
+    const x = xOf(i), y = yOf(d.value);
+    i === 0 ? c.moveTo(x, y) : c.lineTo(x, y);
+  });
+  c.strokeStyle = accent;
+  c.lineWidth = 2;
+  c.lineJoin = 'round';
+  c.stroke();
+
+  // points + value labels — placed above/below to dodge the line & each other
+  c.font = "11px 'DM Mono', monospace";
+  GPA_DATA.forEach((d, i) => {
+    const x = xOf(i), y = yOf(d.value);
+    c.beginPath();
+    c.arc(x, y, 4, 0, Math.PI * 2);
+    c.fillStyle = accent;
+    c.fill();
+    c.strokeStyle = bg;
+    c.lineWidth = 2;
+    c.stroke();
+
+    const prev = i > 0 ? GPA_DATA[i - 1].value : d.value;
+    const next = i < GPA_DATA.length - 1 ? GPA_DATA[i + 1].value : d.value;
+    const below = d.value >= prev && d.value >= next && i !== 0; // local peak → label below
+    c.fillStyle = text;
+    c.textAlign = clampX(x) === x ? 'center' : (x < padL + 20 ? 'left' : 'right');
+    c.textBaseline = below ? 'top' : 'bottom';
+    c.fillText(d.value.toFixed(2), clampX(x), below ? y + 11 : y - 10);
+  });
+}
+
+function renderTranscript() {
+  const tbody = document.getElementById('transcript-body');
+  if (tbody.childElementCount) return; // render once
+  tbody.innerHTML = TRANSCRIPT_DATA.map(r => {
+    let chip;
+    if (r.grade === null) chip = '<span class="grade-chip grade-pending">—</span>';
+    else if (r.grade >= 8) chip = `<span class="grade-chip grade-high">${r.grade.toFixed(1)}</span>`;
+    else if (r.grade >= 5.5) chip = `<span class="grade-chip grade-pass">${r.grade.toFixed(1)}</span>`;
+    else chip = `<span class="grade-chip grade-fail">${r.grade.toFixed(1)}</span>`;
+    return `<tr>
+      <td><div class="ts-name">${r.name}</div><div class="ts-code">${r.code}</div></td>
+      <td class="ts-date">${r.date}</td>
+      <td class="ts-credits">${r.ec === null ? '—' : r.ec.toFixed(1)}</td>
+      <td class="ts-grade">${chip}</td>
+    </tr>`;
+  }).join('');
+}
+
+function switchTab(which) {
+  const isChart = which === 'chart';
+  document.getElementById('tab-chart').classList.toggle('active', isChart);
+  document.getElementById('tab-transcript').classList.toggle('active', !isChart);
+  document.getElementById('panel-chart').classList.toggle('active', isChart);
+  document.getElementById('panel-transcript').classList.toggle('active', !isChart);
+  if (isChart) requestAnimationFrame(drawGpaChart);
+  else renderTranscript();
+}
+
+function openGpaModal() {
+  const m = document.getElementById('gpa-modal');
+  m.classList.add('open');
+  switchTab('chart');
+  requestAnimationFrame(drawGpaChart);
+}
+
+function closeGpaModal() {
+  document.getElementById('gpa-modal').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeGpaModal();
+});
+
+window.addEventListener('resize', () => {
+  const m = document.getElementById('gpa-modal');
+  if (m.classList.contains('open') && document.getElementById('panel-chart').classList.contains('active')) {
+    drawGpaChart();
+  }
+});
+
 function toggleSkills(btn) {
   const tags = btn.parentElement.querySelectorAll('.skill-hidden');
   const hidden = tags[0].style.display === 'none';
